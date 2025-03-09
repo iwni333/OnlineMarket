@@ -17,19 +17,30 @@ public class Cart {
     private User user;
 
 
-    @ManyToMany
-    @JoinTable(
-            name = "cart_product",
-            joinColumns = @JoinColumn(name = "cart_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id")
-    )
-    private List<Product> products;
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL,  orphanRemoval = true)
+   private List<CartProduct> cartProducts;
 
-    @Column(name = "quantity",  nullable = false)
-    @Min(0)
-    private int quantity;
+    public long getCartId() {
+        return cartId;
+    }
 
-    @Column(name = "price",  nullable = false)
-    @Min(0)
-    private double price;
+    public void setCartId(long cartId) {
+        this.cartId = cartId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<CartProduct> getCartProducts() {
+        return cartProducts;
+    }
+
+    public void setCartProducts(List<CartProduct> cartProducts) {
+        this.cartProducts = cartProducts;
+    }
 }

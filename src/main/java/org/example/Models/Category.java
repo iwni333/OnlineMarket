@@ -26,4 +26,28 @@ public class Category {
         HOME,
         OTHER
     }
+
+    public long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public CategoryType getName() {
+        return name;
+    }
+
+    public void setName(CategoryType name) {
+        this.name = name;
+    }
+
+    public @Size(min = 5, max = 500) String getDescription() {
+        return description;
+    }
+
+    public void setDescription(@Size(min = 5, max = 500) String description) {
+        this.description = description;
+    }
 }

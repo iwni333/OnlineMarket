@@ -4,18 +4,17 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 
 @Entity
-public class OrderItem {
+public class CartProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "orderItem_id")
-    private long orderItemId;
+    @Column(name = "cartProduct_id")
+    private long cartProductId;
+    @ManyToOne
+    @JoinColumn(name = "cart_id",   nullable = false)
+    private Cart cart;
 
     @ManyToOne
-    @JoinColumn(name = "order_id",   nullable = false)
-    private Order order;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
+    @JoinColumn(name = "product_id",   nullable = false)
     private Product product;
 
     @Column(name = "quantity",  nullable = false)
@@ -26,21 +25,20 @@ public class OrderItem {
     @Min(0)
     private double price;
 
-
-    public long getOrderItemId() {
-        return orderItemId;
+    public long getCartProductId() {
+        return cartProductId;
     }
 
-    public void setOrderItemId(long orderItemId) {
-        this.orderItemId = orderItemId;
+    public void setCartProductId(long cartProductId) {
+        this.cartProductId = cartProductId;
     }
 
-    public Order getOrder() {
-        return order;
+    public Cart getCart() {
+        return cart;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     public Product getProduct() {

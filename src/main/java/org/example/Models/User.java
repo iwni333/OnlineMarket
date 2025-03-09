@@ -47,4 +47,76 @@ public class User {
         ADMIN,
         USER,
     }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public @Size(min = 4, max = 30) String getUsername() {
+        return username;
+    }
+
+    public void setUsername(@Size(min = 4, max = 30) String username) {
+        this.username = username;
+    }
+
+    public @Email String getEmail() {
+        return email;
+    }
+
+    public void setEmail(@Email String email) {
+        this.email = email;
+    }
+
+    public @Size(min = 6, max = 50) String getPassword() {
+        return password;
+    }
+
+    public void setPassword(@Size(min = 6, max = 50) String password) {
+        this.password = password;
+    }
+
+    public @Size(max = 30) String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(@Size(max = 30) String firstName) {
+        this.firstName = firstName;
+    }
+
+    public @Size(max = 30) String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(@Size(max = 30) String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 }
