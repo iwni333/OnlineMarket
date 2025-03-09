@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import java.util.List;
 
 @Entity
+@Table(name ="\"User\"")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,6 +47,18 @@ public class User {
     public enum Role {
         ADMIN,
         USER,
+    }
+
+    public User() {}
+
+    public User(int id,String username, String email, String password, String firstName, String lastName, Role role) {
+        this.userId = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.role = role;
     }
 
     public long getUserId() {
