@@ -24,7 +24,8 @@ public class Category {
         CLOTHING,
         FOOD,
         HOME,
-        OTHER
+        OTHER,
+        DILDO
     }
 
     public long getCategoryId() {

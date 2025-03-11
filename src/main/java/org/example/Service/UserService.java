@@ -22,6 +22,11 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public void save(User user) {
+        user.setRole(User.Role.USER);
+        userRepository.save(user);
+    }
+
 
 
 }

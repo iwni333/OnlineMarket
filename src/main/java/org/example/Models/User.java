@@ -2,6 +2,8 @@ package org.example.Models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.util.List;
@@ -15,15 +17,18 @@ public class User {
     private long userId;
 
     @Column(name = "username", unique = true, nullable = false)
-    @Size(min = 4, max = 30)
+    @Size(min = 4, max = 30, message = "username should be between 4 - 30 characters")
+    @NotEmpty(message = "name should not is empty")
     private String username;
 
     @Column(name = "email", unique = true, nullable = false)
-    @Email
+    @NotEmpty(message = "not empty")
+    @Email(message = "email should be valid")
     private String email;
 
     @Column(name = "password", unique = true, nullable = false)
-    @Size(min = 6, max = 50)
+    @Size(min = 6, max = 50, message = "password should be between 6 - 50 characters")
+    @NotEmpty(message = "not empty")
     private String password;
 
     @Column(name = "firstName", nullable = false)

@@ -32,5 +32,20 @@ public class UserRepository {
         }
         return users;
     }
-}
+
+    public void save(User user) {
+        try (Session session = HibernateUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            try {
+                session.save(user);
+                transaction.commit();
+            }catch (Exception e) {
+                transaction.rollback();
+            }
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
 
